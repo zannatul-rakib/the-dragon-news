@@ -1,6 +1,4 @@
 import React from 'react';
-import logo from "../../assets/logo.png";
-import moment from 'moment';
 import Marquee from "react-fast-marquee";
 import MyNavbar from '../MyNavbar/MyNavbar';
 import TopBar from '../TopBar/TopBar';

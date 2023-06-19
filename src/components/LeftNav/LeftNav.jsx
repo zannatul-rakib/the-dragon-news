@@ -6,7 +6,7 @@ const LeftNav = () => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/categories")
+        fetch("https://raw.githubusercontent.com/zrakib-dev/dragon-news-server/main/data/categories.json")
             .then(res => res.json())
             .then(data => setCategories(data))
             .catch(error => console.log(error));

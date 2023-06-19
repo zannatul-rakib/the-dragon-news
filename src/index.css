@@ -3,6 +3,8 @@
 * {
   font-family: "Poppins", sans-serif;
   text-decoration: none;
+  margin: 0;
+  padding: 0;
 }
 p {
   color: #706f6f;
@@ -34,10 +36,15 @@ a{
   min-height: 60vh;
 }
 
-.error-page{
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+.author p {
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
 }
+.author p small{
+  font-size: 12px;
+  font-weight: 400;
+}
+
+

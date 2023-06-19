@@ -1,9 +1,11 @@
 import React from 'react';
+import LeftNavNews from '../LeftNavNews/LeftNavNews';
 
 const LeftNav = () => {
     return (
         <div>
-            <h3>this is left side Nav</h3>
+            <h5>All Category</h5>
+            <LeftNavNews/>
         </div>
     );
 };

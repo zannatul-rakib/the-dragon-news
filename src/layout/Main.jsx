@@ -9,8 +9,8 @@ import RightNav from '../components/RightNav/RightNav';
 const Main = () => {
     return (
         <div>
-            <Container>
             <Header />
+            <Container>
                 <Row>
                     <Col md={3} sm={12}>
                         <LeftNav/>
@@ -22,8 +22,8 @@ const Main = () => {
                         <RightNav/>
                     </Col>
            </Row>
-            <Footer/>
            </Container>
+            <Footer/>
         </div>
     );
 };

@@ -6,6 +6,9 @@ import Register from "../components/Register/Register";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import NewsDetails from "../components/NewsDetails/NewsDetails";
 import Category from "../components/Category/Category";
+import NewsDetailsCard from "../components/NewsDetailsCard/NewsDetailsCard";
+import PrivateRoute from "./PrivateRoute";
+import Terms from "../components/Terms/Terms";
 
 const router = createBrowserRouter([
     {
@@ -34,9 +37,19 @@ const router = createBrowserRouter([
         element: <Register/>
     },
     {
-        path: "/news-details/:id",
+        path: "terms",
+        element: <Terms/>
+    },
+    {
+        path: "/news-details",
         element: <NewsDetails />,
-        loader: ({ params }) => fetch(`http://localhost:5000/news/${params.id}`)
+        children: [
+            {
+                path: ":id",
+                element: <PrivateRoute><NewsDetailsCard/></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/news/${params.id}`)
+           }
+       ]
     },
     {
         path: "*",

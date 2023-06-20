@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import MyNavbar from '../MyNavbar/MyNavbar';
 import Footer from '../Footer/Footer';
@@ -8,7 +8,9 @@ import { Form, Button } from 'react-bootstrap';
 
 
 const Register = () => {
-    const { createUser} = useContext(AuthContext);
+    const { createUser } = useContext(AuthContext);
+    const [ accepted, setAccepted ] = useState(false);
+    
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -20,6 +22,17 @@ const Register = () => {
         const check = form.check.value;
         const data = { name, email, password, photo, check }
         console.log(data);
+
+        createUser(email, password)
+            .then(result => {
+                const createdUser = result.user;
+                console.log(createdUser);
+            })
+            .catch(error => console.log(error));
+    }
+
+    const handleAccepted = event => {
+        setAccepted(event.target.checked);
     }
 
     return (
@@ -67,11 +80,11 @@ const Register = () => {
                                                 
                                                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                                                     
-                                                    <Form.Check name='check' type="checkbox" label="Check me out" require />
+                                                    <Form.Check  onClick={handleAccepted} name='check' type="checkbox" label={<span>Accept <Link to="/terms">Terms and Condition</Link></span>} require />
                                                     
                                                 </Form.Group>
-                                                <Button variant="primary" type="submit">
-                                                    Submit
+                                                <Button disabled={!accepted} variant="primary" type="submit">
+                                                    Register
                                                 </Button>
                                             </Form>    
                                             <div className="text-center">

@@ -21,12 +21,12 @@ const Register = () => {
         const photo = form.photo.value;
         const check = form.check.value;
         const data = { name, email, password, photo, check }
-        console.log(data);
+        // console.log(data);
 
         createUser(email, password)
             .then(result => {
                 const createdUser = result.user;
-                console.log(createdUser);
+                // console.log(createdUser);
             })
             .catch(error => console.log(error));
     }

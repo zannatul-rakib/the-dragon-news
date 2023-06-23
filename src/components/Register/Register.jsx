@@ -5,11 +5,13 @@ import Footer from '../Footer/Footer';
 import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../provider/AuthProvider';
 import { Form, Button } from 'react-bootstrap';
+import useTitle from '../../hooks/useTitle';
 
 
 const Register = () => {
     const { createUser } = useContext(AuthContext);
-    const [ accepted, setAccepted ] = useState(false);
+    const [accepted, setAccepted] = useState(false);
+    useTitle("Register")
     
 
     const handleSubmit = (event) => {

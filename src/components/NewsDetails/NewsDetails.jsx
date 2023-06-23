@@ -4,8 +4,11 @@ import { Col, Row } from 'react-bootstrap';
 import RightNav from '../RightNav/RightNav';
 import Footer from '../Footer/Footer';
 import { Outlet } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 
 const NewsDetails = () => {
+
+    useTitle("News Details Page")
 
     return (
         <div >
